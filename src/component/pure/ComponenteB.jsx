@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import propTypes from "prop-types";
 import { Contacto } from "../../model/Contacto";
 
-const ComponenteB = ({ contacto }) => {
-  const { nombre, apellido, email, conectado } = contacto;
-  const [state, setState]= useState(conectado)
-  const changeState = (e) => {
-    e.preventDefault()
-    setState(!state)
-  };
+const ComponenteB = ({ contacto, changeState, state }) => {
+  const { nombre, apellido, email } = contacto;
+  
+  
 
   return (
     <div>
@@ -20,7 +17,7 @@ const ComponenteB = ({ contacto }) => {
 
       <h4>{state ? "Contacto En Línea" : "Contacto No Disponible"}</h4>
       <button
-        onClick={changeState}
+        onClick={()=>changeState()}
       >
         {state ? "Desconectar" : "Conectar"}
       </button>
@@ -29,7 +26,7 @@ const ComponenteB = ({ contacto }) => {
 };
 
 ComponenteB.propTypes = {
-  conectado: propTypes.bool,
+  state: propTypes.bool,
   contacto: propTypes.instanceOf(Contacto),
 };
 
