@@ -5,7 +5,8 @@ import ComponenteB from '../pure/ComponenteB';
 
 
 const ComponenteA = () => {
-    const contacto = new Contacto('luis', 'Chacon', 'lschacon61@gmail.com')
+    const contacto = new Contacto('luis', 'Chacon', 'lschacon61@gmail.com', false)
+    console.log(contacto)
     return (
     <div>
         <ComponenteB contacto={contacto}/>
